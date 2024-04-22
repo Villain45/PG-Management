@@ -31,7 +31,7 @@ const add_person = () => {
         }),
       });
       if (response.ok) toast.success("New Person got added");
-      else toast.error(response.statusText);
+      else toast.error(<div>{response.statusText}</div>);
     } catch (error) {
       console.log("error", error);
     } finally {
@@ -41,8 +41,13 @@ const add_person = () => {
   return (
     <section className="max-w-full">
       <Nav />
-      <Form person={person} setPerson={setPerson} handleSubmit={createPerson} submitting={submitting}/>
-      <Footer/>
+      <Form
+        person={person}
+        setPerson={setPerson}
+        handleSubmit={createPerson}
+        submitting={submitting}
+      />
+      <Footer />
     </section>
   );
 };
