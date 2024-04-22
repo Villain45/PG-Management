@@ -1,7 +1,8 @@
 import Person from "@/models/person";
 import { connectionToDB } from "@/utils/database"
+export const revalidate = 0;
 
-export const GET =async() => {
+export const GET =async(req) => {
     try {
         await connectionToDB();
         const all_tenants = await Person.find({});

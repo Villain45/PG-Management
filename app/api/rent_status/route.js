@@ -1,8 +1,8 @@
 import Person from "@/models/person";
 import RentStatus from "@/models/rentStatus";
 import { connectionToDB } from "@/utils/database";
-
-export const GET = async () => {
+export const revalidate = 0;
+export const GET = async (req) => {
   try {
     await connectionToDB();
     const dateToday =

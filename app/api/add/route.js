@@ -1,5 +1,6 @@
 import Person from "@/models/person";
 import { connectionToDB } from "@/utils/database";
+export const revalidate = 0;
 
 export const POST = async (req) => {
   const { roomNo, name, phoneNo, joindate, amount } = await req.json();

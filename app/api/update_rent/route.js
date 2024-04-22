@@ -2,7 +2,7 @@ import Person from "@/models/person";
 import RentStatus from "@/models/rentStatus";
 import { connectionToDB } from "@/utils/database";
 import mongoose, { get } from "mongoose";
-
+export const revalidate = 0;
 export const PUT = async (req) => {
   const { delId } = await req.json();
   try {

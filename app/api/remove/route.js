@@ -1,6 +1,6 @@
 import Person from "@/models/person";
 import { connectionToDB } from "@/utils/database";
-
+export const revalidate = 0;
 export const DELETE = async (req) => {
   const { phoneNo } = await req.json();
   try {
