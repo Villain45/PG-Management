@@ -31,7 +31,10 @@ const add_person = () => {
         }),
       });
       if (response.ok) toast.success("New Person got added");
-      else toast.error(<div>{response.statusText}</div>);
+      else {
+        var message = response.statusText
+        toast.error(message);
+      }
     } catch (error) {
       console.log("error", error);
     } finally {
