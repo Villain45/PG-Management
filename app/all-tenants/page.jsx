@@ -17,7 +17,7 @@ const all_tenants = () => {
       const fetchedTenants = await response.json();
       await setAllTenants(fetchedTenants);
       if(response.ok) toast.success("Fetched All Tenants")
-      else toast.error(response.statusText)
+      else toast.error("Server Error")
     } catch (error) {
       console.log(error);
     } finally {

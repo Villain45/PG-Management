@@ -7,7 +7,7 @@ export const DELETE = async (req) => {
     await connectionToDB();
     if (phoneNo.trim().length != 10) {
       return new Response("Invalid Phone Number", {
-        status: 400,
+        status: 422,
         statusText: "Invalid Phone Number",
       });
     }
@@ -21,5 +21,6 @@ export const DELETE = async (req) => {
     return new Response("Deleted the Person", { status: 201 });
   } catch (error) {
     console.log("error", error);
+    return new Response(error, { status: 500 });
   }
 };

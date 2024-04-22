@@ -31,10 +31,8 @@ const add_person = () => {
         }),
       });
       if (response.ok) toast.success("New Person got added");
-      else {
-        var message = response.statusText
-        toast.error(message);
-      }
+      else if (response.status === 400) toast.error("Same Phone Number already exists");
+      else if(response.status === 500) toast.error("Unable to add in database, Check the given data");
     } catch (error) {
       console.log("error", error);
     } finally {

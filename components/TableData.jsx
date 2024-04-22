@@ -13,9 +13,9 @@ const TableData = ({ tenant, callTenants, submitting, setSubmitting }) => {
         }),
       });
       if (response.ok) {
-        toast.success(response.statusText + " Paid");
+        toast.success("Marked as Paid");
         callTenants();
-      } else toast.error(response.statusText);
+      } else toast.error("Server Error");
     } catch (error) {
       console.log(error)
     } finally {

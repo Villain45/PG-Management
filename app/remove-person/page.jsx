@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 const remove_person = () => {
   const [numberToDel, setNumberToDel] = useState("");
-  const [submitting, setSubmitting] = useState(false)
+  const [submitting, setSubmitting] = useState(false);
   const removePerson = async (e) => {
     setSubmitting(true);
     e.preventDefault();
@@ -18,11 +18,14 @@ const remove_person = () => {
         }),
       });
       if (response.ok) toast.success("Person removed successfully");
-      else toast.error(response.statusText);
+      else if (response.status === 400)
+        toast.error("Given Phone Number doesn't exist");
+      else if (response.status === 422) toast.error("Invalid Phone Number");
+      else toast.error("Server Error")
     } catch (error) {
       console.log("error", error);
     } finally {
-      setSubmitting(false)
+      setSubmitting(false);
     }
   };
   return (
